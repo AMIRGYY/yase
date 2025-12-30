@@ -451,6 +451,78 @@
                 <div class="music-caption">هر بار این آهنگ رو می‌شنوم، فقط به تو فکر می‌کنم یاس جان... همیشه یادتم 🎶❤️</div>
             </div>
         </div>
+	<!-- دکمه دوستت دارم با افکت قلب -->
+<div class="love-button-section">
+    <button class="love-button" id="loveButton">
+        کلیک کن اگر دوستم داری یاس جان 💕
+    </button>
+</div>
+
+<style>
+    .love-button-section {
+        margin: 80px auto;
+        text-align: center;
+    }
+    .love-button {
+        font-size: 32px;
+        padding: 25px 50px;
+        background: linear-gradient(135deg, #ff4081, #ff1744);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 15px 40px rgba(255,65,129,0.4);
+        transition: all 0.3s;
+        font-family: 'Vazir', sans-serif;
+    }
+    .love-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 20px 50px rgba(255,65,129,0.6);
+    }
+    .love-button:active {
+        transform: scale(0.95);
+    }
+    @media (max-width: 768px) {
+        .love-button { font-size: 24px; padding: 20px 40px; }
+    }
+</style>
+
+<script>
+    document.getElementById('loveButton').addEventListener('click', function() {
+        // پیام پاپ‌آپ عاشقانه
+        alert("منم بیشتر از همیشه دوستت دارم یاس جان 🥹❤️\nتو بهترین اتفاق زندگی منی و تا ابد عاشقتم!");
+
+        // افکت انفجار قلب
+        for (let i = 0; i < 50; i++) {
+            createBurstHeart();
+        }
+    });
+
+    function createBurstHeart() {
+        const heart = document.createElement('div');
+        heart.innerText = ['💖', '❤️', '💕', '💗', '💞', '🌹'][Math.floor(Math.random() * 6)];
+        heart.style.position = 'fixed';
+        heart.style.fontSize = Math.random() * 30 + 40 + 'px';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = '100vh';
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '9999';
+        heart.style.animation = 'burst 3s ease-out forwards';
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
+    }
+
+    // انیمیشن انفجار قلب
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes burst {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+</script>
 
         <div class="footer-message">
             یاس جان، تو زیباترین دلیل نفس کشیدن منی.<br>
@@ -487,6 +559,7 @@
         }
         setInterval(createHeart, 300);
     </script>
+	
 </body>
 </html>نمی دانم در آسمان نگاهت چه رازی نهفته
 که از همان نگاه اول برایت تب کردم
