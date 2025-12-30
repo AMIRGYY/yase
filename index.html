@@ -937,7 +937,222 @@
     `;
     document.head.appendChild(style);
 </script>
+<!-- قلب جادویی دوستت دارم به ۵۰ زبان -->
+<div class="love-languages-section">
+    <h2>یاس اگه میشه بزن رو قلب یه سوپرایز دارم برات 💕</h2>
+    <p class="languages-intro">قلب شگفت اگیز ❤️</p>
+    
+    <div class="magic-heart" id="magicHeart">
+        <span class="heart-beat">❤️</span>
+    </div>
+    
+    <div class="language-display" id="languageDisplay">
+        <p class="flag" id="flag">🌍</p>
+        <h3 id="iLoveYou">کلیک کن تا بگم دوستت دارم...</h3>
+        <p id="pronunciation"></p>
+        <p id="languageName"></p>
+        <p class="personal-message">هر بار که اینو می‌بینی، بدون که واقعاً یعنی دوستت دارم یاس جان 🥹</p>
+    </div>
+</div>
 
+<style>
+    .love-languages-section {
+        margin: 120px auto;
+        max-width: 900px;
+        padding: 50px 20px;
+        text-align: center;
+    }
+    .love-languages-section h2 {
+        font-size: 44px;
+        color: #ff4081;
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(255,65,129,0.6);
+    }
+    .languages-intro {
+        font-size: 26px;
+        color: #fff;
+        margin-bottom: 50px;
+    }
+    .magic-heart {
+        width: 320px;
+        height: 320px;
+        background: linear-gradient(135deg, #ff1744, #ff4081);
+        margin: 0 auto 60px auto;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 25px 60px rgba(255,23,68,0.5);
+        transition: all 0.4s;
+        animation: heartbeat 2s infinite;
+        position: relative;
+    }
+    .magic-heart:hover {
+        transform: scale(1.1);
+        box-shadow: 0 35px 80px rgba(255,23,68,0.7);
+    }
+    .heart-beat {
+        font-size: 160px;
+        animation: pulse 1.5s infinite;
+    }
+    .language-display {
+        padding: 40px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 40px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        border: 3px solid rgba(255,105,180,0.5);
+    }
+    .flag {
+        font-size: 80px;
+        margin-bottom: 20px;
+    }
+    #iLoveYou {
+        font-size: 48px;
+        color: #ff1744;
+        margin: 20px 0;
+        font-weight: bold;
+    }
+    #pronunciation {
+        font-size: 28px;
+        color: #ff80ab;
+        font-style: italic;
+        margin: 15px 0;
+    }
+    #languageName {
+        font-size: 30px;
+        color: #fff;
+        margin: 20px 0;
+    }
+    .personal-message {
+        margin-top: 40px;
+        font-size: 26px;
+        color: #ff80ab;
+        font-style: italic;
+    }
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+    }
+    @media (max-width: 768px) {
+        .magic-heart { width: 260px; height: 260px; }
+        .heart-beat { font-size: 130px; }
+        #iLoveYou { font-size: 38px; }
+        #pronunciation { font-size: 24px; }
+        #languageName { font-size: 26px; }
+        .love-languages-section h2 { font-size: 36px; }
+        .languages-intro { font-size: 22px; }
+        .personal-message { font-size: 22px; }
+    }
+</style>
+
+<script>
+    const loveInLanguages = [
+        { lang: "فرانسوی", flag: "🇫🇷", text: "Je t'aime", pron: "ژُ تِم" },
+        { lang: "اسپانیایی", flag: "🇪🇸", text: "Te quiero", pron: "تِه کی‌ئِرو" },
+        { lang: "ایتالیایی", flag: "🇮🇹", text: "Ti amo", pron: "تی آمو" },
+        { lang: "آلمانی", flag: "🇩🇪", text: "Ich liebe dich", pron: "ایش لیبه دیش" },
+        { lang: "ژاپنی", flag: "🇯🇵", text: "愛してる", pron: "آی‌شی‌ته‌رو" },
+        { lang: "کره‌ای", flag: "🇰🇷", text: "사랑해", pron: "سارانگه" },
+        { lang: "چینی (ماندارین)", flag: "🇨🇳", text: "我爱你", pron: "وُ آئی نی" },
+        { lang: "عربی", flag: "🇸🇦", text: "أحبك", pron: "أُحِبُّك" },
+        { lang: "ترکی", flag: "🇹🇷", text: "Seni seviyorum", pron: "سنی سِویوروم" },
+        { lang: "هندی", flag: "🇮🇳", text: "मैं तुमसे प्यार करता हूँ", pron: "مِین تومسه پیار کرتا هون" },
+        { lang: "پرتغالی", flag: "🇵🇹", text: "Eu te amo", pron: "اِو تِه آمو" },
+        { lang: "روسی", flag: "🇷🇺", text: "Я тебя люблю", pron: "یا تِبیا لیوبلیو" },
+        { lang: "سوئدی", flag: "🇸🇪", text: "Jag älskar dig", pron: "یاگ السکا دیگ" },
+        { lang: "هلندی", flag: "🇳🇱", text: "Ik hou van jou", pron: "ایک هَو فان یَو" },
+        { lang: "یونانی", flag: "🇬🇷", text: "Σ' αγαπώ", pron: "سِ آگاپو" },
+        { lang: "عبری", flag: "🇮🇱", text: "אני אוהב אותך", pron: "آنی اوهِو اوتاخ" },
+        { lang: "فارسی", flag: "🇮🇷", text: "دوستت دارم", pron: "دوستت دارم" },
+        { lang: "اندونزیایی", flag: "🇮🇩", text: "Aku cinta padamu", pron: "آکو چینتا پادا مو" },
+        { lang: "تایلندی", flag: "🇹🇭", text: "ฉันรักคุณ", pron: "چَن رَک کون" },
+        { lang: "ویتنامی", flag: "🇻🇳", text: "Anh yêu em", pron: "اَن یو اِم" },
+        { lang: "لهستانی", flag: "🇵🇱", text: "Kocham cię", pron: "کوخام چیه" },
+        { lang: "مجاری", flag: "🇭🇺", text: "Szeretlek", pron: "سِرِتلِک" },
+        { lang: "چکی", flag: "🇨🇿", text: "Miluji tě", pron: "میلویو تِه" },
+        { lang: "فنلاندی", flag: "🇫🇮", text: "Minä rakastan sinua", pron: "مینا راکاستان سینوا" },
+        { lang: "دانمارکی", flag: "🇩🇰", text: "Jeg elsker dig", pron: "یای السکا دی" },
+        { lang: "نروژی", flag: "🇳🇴", text: "Jeg elsker deg", pron: "یای السکا دِگ" },
+        { lang: "رومانیایی", flag: "🇷🇴", text: "Te iubesc", pron: "تِه یوبِسک" },
+        { lang: "بلغاری", flag: "🇧🇬", text: "Обичам те", pron: "اویچام تِه" },
+        { lang: "کرواتی", flag: "🇭🇷", text: "Volim te", pron: "وُلیم تِه" },
+        { lang: "اسلواکی", flag: "🇸🇰", text: "Ľúbim ťa", pron: "لیوبیم تیا" },
+        { lang: "اسلوونیایی", flag: "🇸🇮", text: "Ljubim te", pron: "لیوبیم تِه" },
+        { lang: "لتونیایی", flag: "🇱🇻", text: "Es tevi mīlu", pron: "اِس تِوی میلو" },
+        { lang: "لیتوانیایی", flag: "🇱🇹", text: "Aš tave myliu", pron: "آش تاوِه میلیو" },
+        { lang: "استونیایی", flag: "🇪🇪", text: "Ma armastan sind", pron: "ما آرماستان سیند" },
+        { lang: "مالتایی", flag: "🇲🇹", text: "Inħobbok", pron: "اینهوبوک" },
+        { lang: "آفریکانس", flag: "🇿🇦", text: "Ek het jou lief", pron: "اِک هِت یو لیف" },
+        { lang: "سواحیلی", flag: "🇹🇿", text: "Nakupenda", pron: "ناکوپِندا" },
+        { lang: "هاوایی", flag: "🇺🇸", text: "Aloha wau ia oe", pron: "آلوها واو ایا اُئه" },
+        { lang: "ایسلندی", flag: "🇮🇸", text: "Ég elska þig", pron: "یِگ اِلسکا ثیگ" },
+        { lang: "ولزی", flag: "🇬🇧", text: "Rwy'n dy garu di", pron: "روی‌ن دی گارو دی" },
+        { lang: "باسکی", flag: "🇪🇸", text: "Maite zaitut", pron: "مایته زایتوت" },
+        { lang: "گالیسیایی", flag: "🇪🇸", text: "Quérote", pron: "کِئورته" },
+        { lang: "کاتالان", flag: "🇪🇸", text: "T'estimo", pron: "تِستیمو" },
+        { lang: "ایرلندی", flag: "🇮🇪", text: "Is breá liom tú", pron: "ایس برا لیوم تو" },
+        { lang: "اسکاتلندی", flag: "🏴󠁧󠁢󠁳󠁣󠁴󠁿", text: "Tha gaol agam ort", pron: "ها گُل آگام اورت" },
+        { lang: "آلبانیایی", flag: "🇦🇱", text: "Të dua", pron: "تِه دوآ" },
+        { lang: "ارمنی", flag: "🇦🇲", text: "Ես քեզ սիրում եմ", pron: "یِس کِز سیروم یِم" },
+        { lang: "گرجی", flag: "🇬🇪", text: "მიყვარხარ", pron: "میکوارخار" },
+        { lang: "آذربایجانی", flag: "🇦🇿", text: "Səni sevirəm", pron: "سَنی سِویرَم" },
+        { lang: "قزاقی", flag: "🇰🇿", text: "Мен сені жақсы көремін", pron: "مِن سِنی ژاقسی کورِمین" },
+        { lang: "ازبکی", flag: "🇺🇿", text: "Seni sevaman", pron: "سِنی سِوامان" }
+    ];
+
+    let currentLang = -1;
+
+    document.getElementById('magicHeart').addEventListener('click', function() {
+        // انیمیشن قلب
+        this.style.transform = 'scale(1.3)';
+        setTimeout(() => this.style.transform = 'scale(1)', 300);
+
+        // زبان جدید
+        let newLang;
+        do {
+            newLang = Math.floor(Math.random() * loveInLanguages.length);
+        } while (newLang === currentLang);
+        currentLang = newLang;
+
+        const lang = loveInLanguages[currentLang];
+
+        document.getElementById('flag').textContent = lang.flag;
+        document.getElementById('iLoveYou').textContent = lang.text;
+        document.getElementById('pronunciation').textContent = `[تلفظ: ${lang.pron}]`;
+        document.getElementById('languageName').textContent = `به زبان ${lang.lang}`;
+
+        // افکت قلب‌های پرنده
+        for (let i = 0; i < 20; i++) {
+            createHeartFly();
+        }
+    });
+
+    function createHeartFly() {
+        const heart = document.createElement('div');
+        heart.innerText = '❤️';
+        heart.style.position = 'fixed';
+        heart.style.fontSize = Math.random() * 40 + 40 + 'px';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = '100vh';
+        heart.style.pointerEvents = 'none';
+        heart.style.zIndex = '999';
+        heart.style.animation = 'flyUp 3s ease-out forwards';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+    }
+
+    const flyStyle = document.createElement('style');
+    flyStyle.innerHTML = `@keyframes flyUp { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }`;
+    document.head.appendChild(flyStyle);
+</script>
         <div class="footer-message">
             یاس جان، تو زیباترین دلیل نفس کشیدن منی.<br>
             هر لحظه با تو مثل یه رویاست که نمی‌خوام بیدار شم.<br>
