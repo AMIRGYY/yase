@@ -251,10 +251,152 @@
         <div class="photo-section">
             <div class="polaroid">
                 <div class="heart-frame">💕</div>
-                <img src="yase/352764196-talab-org.jpg" alt="عکس عاشقانه"
+                <img src="450x1731390448.jpeg" alt="عکس عاشقانه"
                 <div class="photo-caption">تو زیباترین لحظه زندگی منی، یاس جان ❤️</div>
             </div>
         </div>
+	<!-- بخش شمارشگر مدت زمان با هم بودن (دقیق و زنده) -->
+<div class="countdown-section">
+    <h2>یاس و رائد با هم 💑</h2>
+    <div class="countdown-display">
+        <div class="time-unit">
+            <span id="years">۰</span>
+            <p>سال</p>
+        </div>
+        <div class="time-unit">
+            <span id="months">۰</span>
+            <p>ماه</p>
+        </div>
+        <div class="time-unit">
+            <span id="days">۲۰</span>
+            <p>روز</p>
+        </div>
+        <div class="time-unit">
+            <span id="hours">۰</span>
+            <p>ساعت</p>
+        </div>
+        <div class="time-unit">
+            <span id="minutes">۰</span>
+            <p>دقیقه</p>
+        </div>
+        <div class="time-unit">
+            <span id="seconds">۰</span>
+            <p>ثانیه</p>
+        </div>
+    </div>
+    <p class="countdown-caption">از وقتی که قلبامون یکی شد و دنیا برامون قشنگ‌تر شد یاس جان ❤️</p>
+</div>
+
+<style>
+    .countdown-section {
+        margin: 70px auto;
+        text-align: center;
+        padding: 40px 20px;
+        max-width: 1000px;
+    }
+    .countdown-section h2 {
+        font-size: 40px;
+        color: #ff4081;
+        margin-bottom: 30px;
+        text-shadow: 0 0 20px rgba(255,65,129,0.6);
+        animation: pulse 3s infinite;
+    }
+    .countdown-display {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        background: rgba(255,255,255,0.15);
+        padding: 40px 30px;
+        border-radius: 40px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        border: 2px solid rgba(255,105,180,0.3);
+    }
+    .time-unit {
+        text-align: center;
+        min-width: 100px;
+    }
+    .time-unit span {
+        font-size: 60px;
+        font-weight: bold;
+        color: #ff1744;
+        display: block;
+        text-shadow: 0 0 20px rgba(255,23,68,0.8);
+        animation: pulse 2s infinite alternate;
+    }
+    .time-unit p {
+        font-size: 20px;
+        color: #fff;
+        margin: 10px 0 0;
+        font-style: italic;
+    }
+    .countdown-caption {
+        margin-top: 35px;
+        font-size: 28px;
+        color: #ff80ab;
+        font-style: italic;
+        text-shadow: 0 0 10px rgba(255,128,171,0.5);
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    @media (max-width: 768px) {
+        .countdown-display { gap: 15px; padding: 30px 20px; }
+        .time-unit span { font-size: 45px; }
+        .time-unit p { font-size: 18px; }
+        .countdown-section h2 { font-size: 32px; }
+        .countdown-caption { font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+        .time-unit span { font-size: 38px; }
+        .countdown-display { flex-direction: column; }
+    }
+</style>
+
+<script>
+    // تاریخ و ساعت دقیق شروع رابطه‌تون رو اینجا بذار
+    // مثلاً اگر دقیقاً ۱۰ آذر ۱۴۰۴ ساعت ۱۸:۳۰ شروع کردید:
+    const startDate = new Date(2025, 11, 10, 18, 30, 0); // سال, ماه-۱, روز, ساعت, دقیقه, ثانیه
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = now - startDate;
+
+        if (diff < 0) {
+            document.querySelector('.countdown-display').innerHTML = "<p>هنوز شروع نشده 😊</p>";
+            return;
+        }
+
+        const seconds = Math.floor(diff / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const months = Math.floor(days / 30.4); // تقریبی
+        const years = Math.floor(months / 12);
+
+        document.getElementById('years').textContent = years;
+        document.getElementById('months').textContent = months % 12;
+        document.getElementById('days').textContent = days % 30;
+        document.getElementById('hours').textContent = hours % 24;
+        document.getElementById('minutes').textContent = minutes % 60;
+        document.getElementById('seconds').textContent = seconds % 60;
+    }
+
+    // اولین بار اجرا بشه
+    updateCountdown();
+
+    // هر ثانیه آپدیت بشه
+    setInterval(updateCountdown, 1000);
+</script>
+
+
+  
+
 
         <p class="intro">اینجا ۱۰ تا پیغام عاشقانه از عمق قلبم برات نوشتم یاس جان.<br>روی هر کدوم کلیک کن تا احساسم رو بخونی 💌</p>
 
@@ -486,7 +628,279 @@
         .love-button { font-size: 24px; padding: 20px 40px; }
     }
 </style>
+<!-- بازی چرخ عشق رائد و یاس -->
+<div class="love-wheel-section">
+    <h2>چرخ عشق ما رو بچرخون یاس جان 💞</h2>
+    <p class="wheel-intro">کلیک کن و ببین امروز قلب رائد برات چی داره 😍</p>
+    
+    <div class="wheel-container">
+        <canvas id="loveWheel" width="400" height="400"></canvas>
+        <button class="spin-button" id="spinButton">بچرخون!</button>
+    </div>
+    
+    <div class="result-display" id="resultDisplay">
+        <p>چرخ رو بچرخون تا سورپرایز امروز رو ببینی یاس جان ❤️</p>
+    </div>
+</div>
 
+<style>
+    .love-wheel-section {
+        margin: 120px auto;
+        max-width: 900px;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .love-wheel-section h2 {
+        font-size: 42px;
+        color: #ff4081;
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(255,65,129,0.5);
+    }
+    .wheel-intro {
+        font-size: 24px;
+        color: #fff;
+        margin-bottom: 40px;
+    }
+    .wheel-container {
+        position: relative;
+        display: inline-block;
+        margin: 40px 0;
+    }
+    #loveWheel {
+        border-radius: 50%;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .spin-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(135deg, #ff1744, #ff4081);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 22px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        z-index: 10;
+    }
+    .spin-button:hover {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    .result-display {
+        margin-top: 50px;
+        padding: 30px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 30px;
+        backdrop-filter: blur(10px);
+        min-height: 120px;
+        font-size: 28px;
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+    @media (max-width: 768px) {
+        #loveWheel { width: 300px; height: 300px; }
+        .spin-button { width: 80px; height: 80px; font-size: 18px; }
+        .love-wheel-section h2 { font-size: 34px; }
+        .wheel-intro { font-size: 20px; }
+        .result-display { font-size: 24px; }
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const wheelData = [
+        { text: "دلیل امروز عاشقتم: لبخندت که صبحم رو روشن می‌کنه 😍", color: "#ff6b6b" },
+        { text: "یادته اون شب که تا صبح حرف زدیم؟ بهترین شب زندگی من بود یاس جان ☺️❤️", color: "#ff4081" },
+        { text: "بوسه مجازی محکم از رائد 😘😘😘", color: "#ff1744" },
+        { text: "آرزوی امروزم: همیشه کنار هم خوشحال باشیم و هیچوقت از هم جدا نشیم 💕", color: "#e91e63" },
+        { text: "تو بهترین هدیه خدا به منی یاس. ممنون که هستی 🌹", color: "#ad1457" },
+        { text: "دوستت دارم بیشتر از دیروز، کمتر از فردا یاس جان 💖", color: "#f06292" },
+        { text: "فقط خواستم بگم: تو همه دنیای منی و بدون تو هیچی نیستم 🥹", color: "#ec407a" },
+        { text: "قول می‌دم همیشه مراقبت باشم، همیشه عاشقت بمونم یاس جان 💍❤️", color: "#d81b60" }
+    ];
+
+    const ctx = document.getElementById('loveWheel').getContext('2d');
+    let currentRotation = 0;
+    let isSpinning = false;
+
+    const wheel = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: wheelData.map(() => 1),
+                backgroundColor: wheelData.map(item => item.color),
+                borderWidth: 4,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: { duration: 0 },
+            plugins: { legend: { display: false }, tooltip: { enabled: false } }
+        }
+    });
+
+    document.getElementById('spinButton').addEventListener('click', () => {
+        if (isSpinning) return;
+        isSpinning = true;
+
+        const spins = 5 + Math.random() * 5;
+        const finalAngle = spins * 360 + Math.random() * 360;
+        currentRotation += finalAngle;
+
+        wheel.options.animation.duration = 4000;
+        wheel.options.rotation = currentRotation;
+        wheel.update();
+
+        setTimeout(() => {
+            const normalizedRotation = currentRotation % 360;
+            const segmentAngle = 360 / wheelData.length;
+            const index = Math.floor((360 - normalizedRotation + segmentAngle / 2) % 360 / segmentAngle);
+            document.getElementById('resultDisplay').innerHTML = `<p>${wheelData[index].text}</p>`;
+            isSpinning = false;
+        }, 4200);
+    });
+</script>
+	<!-- دکمه بوسه و قلب پر کن صفحه -->
+<div class="kiss-section">
+    <h2>یاس جان، دلت بوسه خواست؟ 😘</h2>
+    <p class="kiss-intro">کلیک کن تا کلی بوسه و قلب برات بریزم ❤️</p>
+    
+    <button class="kiss-button" id="kissButton">
+        بوسه می‌خوام از رائد 💋
+    </button>
+    
+    <div class="kiss-message" id="kissMessage">
+        کلیک کن تا بوست کنم گل من...
+    </div>
+</div>
+
+<style>
+    .kiss-section {
+        margin: 120px auto;
+        max-width: 900px;
+        padding: 50px 20px;
+        text-align: center;
+    }
+    .kiss-section h2 {
+        font-size: 44px;
+        color: #ff4081;
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(255,65,129,0.6);
+    }
+    .kiss-intro {
+        font-size: 26px;
+        color: #fff;
+        margin-bottom: 50px;
+    }
+    .kiss-button {
+        font-size: 34px;
+        padding: 30px 60px;
+        background: linear-gradient(135deg, #ff1744, #ff4081);
+        color: white;
+        border: none;
+        border-radius: 60px;
+        cursor: pointer;
+        box-shadow: 0 20px 50px rgba(255,23,68,0.4);
+        transition: all 0.4s;
+        font-family: 'Vazir', sans-serif;
+    }
+    .kiss-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 30px 60px rgba(255,23,68,0.6);
+    }
+    .kiss-button:active {
+        transform: scale(0.95);
+    }
+    .kiss-message {
+        margin-top: 60px;
+        padding: 40px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 40px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        min-height: 150px;
+        font-size: 30px;
+        color: #fff;
+        line-height: 2;
+        border: 3px solid rgba(255,105,180,0.5);
+    }
+    @media (max-width: 768px) {
+        .kiss-button { font-size: 28px; padding: 25px 50px; }
+        .kiss-section h2 { font-size: 36px; }
+        .kiss-intro { font-size: 22px; }
+        .kiss-message { font-size: 26px; padding: 30px; }
+    }
+</style>
+
+<script>
+    const kissMessages = [
+        "😘😘😘😘😘 کلی بوسه محکم روی گونه‌هات یاس جان!<br>دوستت دارم گل من 💕",
+        "💋💋💋 بوسه روی پیشونی، بینی، لبات... همه جات رو بوسیدم یاس جونم ❤️",
+        "😘😘😘😘 بوسه‌های بارونی از رائد برات!<br>هر کدومش می‌گه چقدر عاشقتم 🥰",
+        "💋💋💋💋💋 بوسه طولانی و عمیق یاس جان<br>دلم برات تنگ شده بود عشقم 😘",
+        "😘😘😘 بوسه روی دستات، روی چشمای قشنگت، روی لبخندت<br>تو بهترینی یاس ❤️",
+        "💋💋💋💋 کلی بوسه با عشق از رائد<br>هر بوسه‌ش می‌گه دوستت دارم بیشتر از دیروز 💖",
+        "😘😘😘😘😘 بوسه‌های پر از دلتنگی یاس گلم<br>زود بیا پیشم که بیشتر بوست کنم 🥹",
+        "💋💋💋 بوسه روی گردنت، گوشت، موهات...<br>همه وجودت رو بوسیدم یاس جان 😍",
+        "😘😘😘😘 بوسه‌های صبحگاهی، ظهرگاهی، شبانگاهی<br>هر لحظه عاشقتم یاس ❤️",
+        "💋💋💋💋💋 بوسه ابدی از رائد<br>تا آخر عمر هر روز بوست می‌کنم یاس جان 💕"
+    ];
+
+    let currentKiss = -1;
+
+    document.getElementById('kissButton').addEventListener('click', function() {
+        // انیمیشن دکمه
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => this.style.transform = 'scale(1)', 200);
+
+        // پیام جدید
+        let newKiss;
+        do {
+            newKiss = Math.floor(Math.random() * kissMessages.length);
+        } while (newKiss === currentKiss && kissMessages.length > 1);
+        currentKiss = newKiss;
+
+        document.getElementById('kissMessage').innerHTML = kissMessages[currentKiss];
+
+        // پر کردن صفحه از بوسه و قلب
+        for (let i = 0; i < 40; i++) {  // تعداد زیاد برای پر شدن صفحه
+            createKissEffect();
+        }
+    });
+
+    function createKissEffect() {
+        const symbols = ['😘', '❤️', '💋', '💕', '💖', '😍', '🥰', '💗'];
+        const effect = document.createElement('div');
+        effect.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+        effect.style.position = 'fixed';
+        effect.style.fontSize = Math.random() * 40 + 50 + 'px';  // بزرگ‌تر برای پر شدن صفحه
+        effect.style.left = Math.random() * 100 + 'vw';
+        effect.style.top = Math.random() * 100 + 'vh';  // از همه جای صفحه شروع بشه
+        effect.style.pointerEvents = 'none';
+        effect.style.zIndex = '999';
+        effect.style.animation = 'kissRain 4s ease-in forwards';
+        effect.style.opacity = '0.9';
+        document.body.appendChild(effect);
+
+        setTimeout(() => effect.remove(), 4000);
+    }
+
+    // انیمیشن باران بوسه و قلب
+    const kissStyle = document.createElement('style');
+    kissStyle.innerHTML = `
+        @keyframes kissRain {
+            0% { transform: translateY(-50px) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(100vh) scale(1.2) rotate(360deg); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(kissStyle);
+</script>
 <script>
     document.getElementById('loveButton').addEventListener('click', function() {
         // پیام پاپ‌آپ عاشقانه
